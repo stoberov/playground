@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 
 import { increment, decrement } from './../actions';
 
+import Button from 'material-ui/Button';
+import AddIcon from 'material-ui-icons/Add';
+import RemoveIcon from 'material-ui-icons/Remove';
+
 class Counter extends Component {
   handleIncrement = () => {
     this.props.increment();
@@ -18,9 +22,21 @@ class Counter extends Component {
       <div>
         <h2>Counter</h2>
         <div>
-          <button onClick={this.handleDecrement}>-</button>
+          <Button
+            fab
+            color="primary"
+            aria-label="add"
+            onClick={this.handleDecrement}>
+            <RemoveIcon />
+          </Button>
           <span>{this.props.count}</span>
-          <button onClick={this.handleIncrement}>+</button>
+          <Button
+            fab
+            color="primary"
+            aria-label="add"
+            onClick={this.handleIncrement}>
+            <AddIcon />
+          </Button>
         </div>
       </div>
     );
@@ -28,7 +44,9 @@ class Counter extends Component {
 }
 
 Counter.propTypes = {
-  count: PropTypes.number.isRequired
+  count: PropTypes.number.isRequired,
+  increment: PropTypes.func.isRequired,
+  decrement: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ counter }) => {
