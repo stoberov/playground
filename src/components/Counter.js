@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import { increment, decrement } from './../actions';
 
 class Counter extends Component {
@@ -24,6 +26,10 @@ class Counter extends Component {
     );
   }
 }
+
+Counter.propTypes = {
+  count: PropTypes.number.isRequired
+};
 
 const mapStateToProps = ({ counter }) => {
   return {
