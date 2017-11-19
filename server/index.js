@@ -1,14 +1,15 @@
-const api = require('./api');
-const path = require('path');
-
-const compression = require('compression');
-const bodyParser = require('body-parser');
-const favicon = require('express-favicon');
 const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const favicon = require('express-favicon');
+const compression = require('compression');
+const path = require('path');
 
 const settings = require('./config/settings');
 const setupDatabase = require('./config/database');
 const logger = require('./config/logger');
+
+const api = require('./api');
 
 // Create Express server
 const app = express();
@@ -26,8 +27,18 @@ app.use(logger());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Enable parsing cookies from request headers
+app.use(cookieParser());
+
 // Compress all responses
 app.use(compression());
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Request-Headers", "*");
+  res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT');
+  next();
+});
 
 // Register API routes
 app.use('/api', api);

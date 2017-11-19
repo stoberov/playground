@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 import * as actionTypes from './actionTypes';
 
 export const increment = () => {
@@ -15,12 +13,15 @@ export const decrement = () => {
 };
 
 export const fetchWeather = () => {
-  const url = 'https://randomuser.me/api/';
-
-  const request = axios.get(url);
+  // const url = 'https://randomuser.me/api/';
+  const url = 'http://localhost:8080/api/superheroes';
 
   return {
     type: actionTypes.FETCH_WEATHER,
-    payload: request
+    payload: {
+      request: {
+        url
+      }
+    }
   };
 };

@@ -1,16 +1,17 @@
 import * as actionTypes from './../actions/actionTypes';
 
-const weather = (state = [], action) => {
-  console.log(action);
+const initialState = {
+  superheroes: []
+};
 
+const weather = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.FETCH_WEATHER:
-      const name = action.payload.then(item => {
-        return item.data.results[0].email;
-      });
+    case actionTypes.FETCH_WEATHER_SUCCESS:
+      const data = action.payload.data;
 
-      console.log(name);
-      return [...state, name];
+      return Object.assign({}, state, {
+        superheroes: data
+      });
 
     default:
       return state;

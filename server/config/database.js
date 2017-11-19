@@ -13,8 +13,13 @@ const setupDatabase = () => {
   // Get the default connection
   const db = mongoose.connection;
 
-  // Log MongoDB conection errors
+  // Log MongoDB conection error
   db.on('error', err => console.log(err));
+
+  // Display a success message
+  db.once('open', () => {
+    console.log('MongoDB connected!');
+  });
 };
 
 module.exports = setupDatabase;
