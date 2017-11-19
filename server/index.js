@@ -34,8 +34,8 @@ app.use(cookieParser());
 app.use(compression());
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Request-Headers", "*");
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Request-Headers', '*');
   res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT');
   next();
 });
@@ -45,6 +45,11 @@ app.use('/api', api);
 
 // Serve static assets (React app)
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
+
+// For any request that doesn't match one above - always return the main index.html, so react-router render the route in the client
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+});
 
 // Start Express Server
 app.listen(settings.PORT, () => {

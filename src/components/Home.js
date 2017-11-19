@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropType from 'prop-types';
 
 import Paper from 'material-ui/Paper';
-import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import Table, {
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow
+} from 'material-ui/Table';
 
-import { fetchWeather } from './../actions/index';
+import { fetchSuperheroes } from './../actions/index';
 
 class Home extends Component {
   componentWillMount() {
-    this.props.fetchWeather();
+    this.props.fetchSuperheroes();
   }
 
   render() {
@@ -42,12 +48,17 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = ({ weather }) => {
+Home.propTypes = {
+  data: PropType.array.isRequired,
+  fetchSuperheroes: PropType.func.isRequired
+};
+
+const mapStateToProps = ({ superheroes }) => {
   return {
-    data: weather.superheroes
+    data: superheroes.data
   };
 };
 
 export default connect(mapStateToProps, {
-  fetchWeather
+  fetchSuperheroes
 })(Home);

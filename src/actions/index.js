@@ -12,12 +12,12 @@ export const decrement = () => {
   };
 };
 
-export const fetchWeather = () => {
+export const fetchSuperheroes = () => {
   // const url = 'https://randomuser.me/api/';
   const url = 'http://localhost:8080/api/superheroes';
 
   return {
-    type: actionTypes.FETCH_WEATHER,
+    type: actionTypes.FETCH_SUPERHEROES,
     payload: {
       request: {
         url

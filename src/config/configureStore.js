@@ -7,7 +7,7 @@ import axiosMiddleware from 'redux-axios-middleware';
 import rootReducer from './../reducers';
 
 const configureStore = (initialState = {}, history) => {
-  // Create an Axios client to be used for middleware
+  // Create an Axios client to be used in middleware
   const client = axios.create({
     responseType: 'json'
     // baseURL: 'http://localhost:8080/api',
