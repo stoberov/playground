@@ -7,7 +7,7 @@ import createHistory from 'history/createBrowserHistory';
 // import store, { history } from './config/store';
 import registerServiceWorker from './config/registerServiceWorker';
 
-import configureStore from './config/configureStore';
+import configureStore from './redux/configureStore';
 
 import App from './containers/App';
 import './index.css';

@@ -4,7 +4,7 @@ import { routerMiddleware } from 'react-router-redux';
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 
-import rootReducer from './../reducers';
+import rootReducer from './ducks';
 
 const configureStore = (initialState = {}, history) => {
   // Create an Axios client to be used in middleware
@@ -34,8 +34,8 @@ const configureStore = (initialState = {}, history) => {
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept('../reducers', () => {
-      const nextRootReducer = require('../reducers/index');
+    module.hot.accept('./ducks/', () => {
+      const nextRootReducer = require('./ducks/');
       store.replaceReducer(nextRootReducer);
     });
   }

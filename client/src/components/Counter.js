@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { increment, decrement } from './../actions';
+import { increment, decrement } from './../redux/ducks/counter';
 
 import Button from 'material-ui/Button';
 import AddIcon from 'material-ui-icons/Add';

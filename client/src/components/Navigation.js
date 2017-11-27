@@ -1,9 +1,4 @@
 import React from 'react';
-// import { Route, Link } from 'react-router-dom';
-// import { history } from './../../store';
-
-// import Home from './Home';
-// import Counter from './Counter';
 
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';

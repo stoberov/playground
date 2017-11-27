@@ -10,7 +10,7 @@ import Table, {
   TableRow
 } from 'material-ui/Table';
 
-import { fetchSuperheroes } from './../actions/index';
+import { fetchSuperheroes } from './../redux/ducks/superheroes';
 
 class Home extends Component {
   componentWillMount() {
