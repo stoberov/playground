@@ -7,11 +7,11 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Server",
+            "name": "Server",
             "program": "${workspaceFolder}/server\\index.js"
         },
         {
-          "name": "Chrome",
+          "name": "Client + Chrome",
           "type": "chrome",
           "request": "launch",
           "url": "http://localhost:3000",
@@ -19,6 +19,12 @@
           "sourceMapPathOverrides": {
             "webpack:///src/*": "${webRoot}/*"
           }
-        }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Console",
+            "program": "${workspaceFolder}/console\\index.js"
+        },
     ]
 }
